@@ -496,3 +496,9 @@ margin-bottom:46px;
     margin:0px 5px;
    }
 }
+
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav {
+        padding-left: 65px;
+    }
+}
