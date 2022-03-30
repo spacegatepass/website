@@ -522,6 +522,10 @@ margin-bottom:46px;
     color: black;
 }
 
+.modal p {
+    color: black;
+}
+
 #disclaimerModal .modal-dialog {
     width: 100%;
     max-width: -moz-available;          /* WebKit-based browsers will ignore this. */

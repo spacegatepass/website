@@ -85,6 +85,8 @@ window.addEventListener('load', async function() {
     EthersProvider.pollingInterval = 1000 * 240; // 4min
     ReadingContract = new ethers.Contract(contractAddress[network], await (await fetch('abi_'+network+'.json')).json(), EthersProvider);
 
+    refresh();
+
     web3Modal = new Web3Modal({
         cacheProvider: false,
         providerOptions: {
@@ -171,35 +173,7 @@ window.addEventListener('load', async function() {
         connectButton.addEventListener('click', onConnect);
     }
 
-    document.getElementById('increment-mint').addEventListener('click', function () {
-        let counter = document.getElementById('mint-amount');
-
-        const incrementedAmount = parseInt(counter.innerText) + 1;
-
-        if (incrementedAmount > (isAllowlistSale && !isPublicSale ? maxMintAmount - claimedAmount : 5)) {
-            return;
-        }
-
-        counter.innerText = incrementedAmount;
-    });
-
-    document.getElementById('decrement-mint').addEventListener('click', function () {
-        let counter = document.getElementById('mint-amount');
-
-        const decrementedAmount = parseInt(counter.innerText) - 1;
-
-        if (decrementedAmount < 0) {
-            return;
-        }
-
-        counter.innerText = decrementedAmount;
-    });
-
     document.getElementById('mint-button').addEventListener('click', async function () {
-        if (document.getElementById('mint-amount').innerText === '0') {
-            return;
-        }
-
         try {
             if (isAllowlistSale && !isPublicSale) {
                 await allowlistMint();
@@ -221,13 +195,12 @@ const allowlistMint = async function() {
         throw new Error('Not connected');
     }
 
-    const counter = document.getElementById('mint-amount');
-    const mintAmount = parseInt(counter.innerText);
+    const mintAmount = 1;
 
     const Contract = ReadingContract.connect(EthersSigner);
 
     const walletBalance = await EthersSigner.getBalance();
-    const mintValue = ethers.utils.parseEther('0.069').mul(mintAmount);
+    const mintValue = ethers.utils.parseEther('0.2').mul(mintAmount);
 
     if (mintValue.gte(walletBalance)) {
         throw new Error(`Not enough funds to mint ${mintAmount} for ${ethers.utils.formatEther(mintValue)}`);
@@ -264,13 +237,12 @@ const publicMint = async function() {
         throw new Error('Not connected');
     }
 
-    const counter = document.getElementById('mint-amount');
-    const mintAmount = parseInt(counter.innerText);
+    const mintAmount = 1;
 
     const Contract = ReadingContract.connect(EthersSigner);
 
     const walletBalance = await EthersSigner.getBalance();
-    const mintValue = ethers.utils.parseEther('0.069').mul(mintAmount);
+    const mintValue = ethers.utils.parseEther('0.2').mul(mintAmount);
 
     if (mintValue.gte(walletBalance)) {
         throw new Error(`Not enough funds to mint ${mintAmount} for ${ethers.utils.formatEther(mintValue)}`);
@@ -297,5 +269,18 @@ const publicMint = async function() {
     receiptCall.then(async function (receipt) {
         console.debug('Mint successful', receipt);
     });
+};
+
+const refresh = async function() {
+    isAllowlistSale = await ReadingContract.allowlistIsOpen();
+    isPublicSale = await ReadingContract.publicSaleIsOpen();
+
+    const remainingSupply = await ReadingContract.currentSupply();
+
+    document.getElementById('remaining-supply').innerText = remainingSupply.toString();
+
+    if (remainingSupply <= 0) {
+        document.getElementById('mint-button').style.display = 'none';
+    }
 };
 
