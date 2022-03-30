@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "walletlink": "^2.4.7"
+  },
+  "scripts": {
+    "bundle": "browserify js/main.js -o bundle.js",
+    "minify": "uglifyjs --compress --mangle --no-annotations -o bundle.min.js bundle.js",
+    "build": "npm run bundle && npm run minify"
+  }
+}

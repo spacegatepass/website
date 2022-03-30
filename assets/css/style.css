@@ -502,3 +502,36 @@ margin-bottom:46px;
         padding-left: 65px;
     }
 }
+
+.modal-confirm .close {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    color: black;
+    text-shadow: none;
+    opacity: 0.5;
+    border: 0;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.modal-confirm .close:hover {
+    opacity: 0.8;
+    color: black;
+}
+
+#disclaimerModal .modal-dialog {
+    width: 100%;
+    max-width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    max-width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    max-width: fill-available;
+    margin-top: 5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#disclaimerModal h4 {
+    font-size: 16px;
+}

@@ -9,6 +9,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 <div class="container-fluid">
@@ -49,7 +50,7 @@
                                 src="assets/images/discord.png"></a>
                     </li>
                 </ul>
-                <a href="#" class="btn-connect">Connect</a>
+                <a href="#" class="btn-connect connect-button">Connect</a>
             </div>
 
         </div>
@@ -63,7 +64,7 @@
                 <p>All 2000 Spacegate Passes are reserved for our whitelisted members. 24 hours after the whitelist
                     sale,<br>
                     all remaining passes will be available in the public sale.</p>
-                <div class="btn-mint noselect">Mint&nbsp;<span>(0.2 ETH)</span></div>
+                <div class="btn-mint noselect" id="mint-button">Mint&nbsp;<span>(0.2 ETH)</span></div>
                 <p class="content-after-button">0 / 2000 minted</p>
             </div>
         </div>
@@ -76,6 +77,77 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Example Buttons  -->
+<!-- Successfultx btn/modal -->
+<div class="successModalBtn" style="display: none;">
+    <!-- Btn to trigger success modal example -->
+    <a id="modal-success-button" data-bs-toggle="modal" data-bs-target="#successModal">Success</a>
+    <!-- Btn to trigger failed modal example -->
+    <a id="modal-failure-button" data-bs-toggle="modal" data-bs-target="#failureModal">Failure</a>
+</div>
+
+
+<!-- Success Modal HTML -->
+<div id="successModal" class="modal fade success-modal">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <!-- green checkmark -->
+                <div class="icon-box">
+                    <i class="material-icons" style="margin-bottom: 1rem;">&#xE876;</i>
+                </div>
+                <h4 id="modal-success-h4">SUCCESS</h4>
+                <p class="popup-p" id="modal-success-p">Your transaction is processing.</p>
+                <a id="modal-success-link" target="_blank" rel="noopener">See tx on Etherscan</a> <i class="material-icons" style="font-size: 1em;">&#xE5C8;</i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Error modal -->
+
+<!-- Error Modal HTML -->
+<div id="failureModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <!-- red error -->
+                <div class="icon-box error">
+                    <i class="material-icons error" style="margin-bottom: 1rem;">error</i>
+                </div>
+                <h4 id="modal-error-h4">FAILURE</h4>
+                <p class="popup-p" id="modal-error-p">Your interaction has failed to process due to<br /><span id="modal-error-reason">reason</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Disclaimer Modal HTML -->
+<div id="disclaimerModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>WARNING: PLEASE USE THE INTERFACE BELOW. INTERACTING DIRECTLY WITH THE CONTRACT IS COMPLEX AND HIGHLY DISCOURAGED. SPACEGATEPASS IS NOT RESPONSIBLE FOR FUNDS OR NFTS LOST.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/ethers.min.js" type="application/javascript"></script>
+<script type="text/javascript" src="assets/js/web3modal.js"></script>
+<script type="text/javascript" src="assets/js/walletconnect.min.js"></script>
+
+<script src="bundle.min.js"></script>
 </body>
 </html>
 
