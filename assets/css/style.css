@@ -534,6 +534,8 @@ margin-bottom:46px;
     margin-top: 5rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    position: absolute;
+    bottom: 0;
 }
 
 #disclaimerModal h4 {
