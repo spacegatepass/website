@@ -2,11 +2,11 @@ const walletlink = require('walletlink');
 
 const apiHost = 'https://api.spacegatepass.com';
 const network = 'rinkeby';
-const infuraId = 'f1a8d564801d42c6ba041ece06731040';
+const infuraId = 'e269bc0a173a42e99d4fdf28e5fc8ed3';
 const providers = {
-    mainnet: 'https://mainnet.infura.io/v3/f1a8d564801d42c6ba041ece06731040',
-    ropsten: 'https://ropsten.infura.io/v3/f1a8d564801d42c6ba041ece06731040',
-    rinkeby: 'https://rinkeby.infura.io/v3/f1a8d564801d42c6ba041ece06731040'
+    mainnet: 'https://mainnet.infura.io/v3/e269bc0a173a42e99d4fdf28e5fc8ed3',
+    ropsten: 'https://ropsten.infura.io/v3/e269bc0a173a42e99d4fdf28e5fc8ed3',
+    rinkeby: 'https://rinkeby.infura.io/v3/e269bc0a173a42e99d4fdf28e5fc8ed3'
 };
 const chainIds = {
     mainnet: '0x1',
