@@ -82,6 +82,9 @@ window.addEventListener('load', async function() {
 
     modal.show();
 
+    EthersProvider.pollingInterval = 1000 * 240; // 4min
+    ReadingContract = new ethers.Contract(contractAddress[network], await (await fetch('abi_'+network+'.json')).json(), EthersProvider);
+
     web3Modal = new Web3Modal({
         cacheProvider: false,
         providerOptions: {
@@ -211,9 +214,6 @@ window.addEventListener('load', async function() {
             document.getElementById('modal-failure-button').click();
         }
     });
-
-    EthersProvider.pollingInterval = 1000 * 240; // 4min
-    ReadingContract = new ethers.Contract(contractAddress[network], await (await fetch('abi_'+network+'.json')).json(), EthersProvider);
 });
 
 const allowlistMint = async function() {
