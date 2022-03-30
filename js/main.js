@@ -275,9 +275,11 @@ const refresh = async function() {
     isAllowlistSale = await ReadingContract.allowlistIsOpen();
     isPublicSale = await ReadingContract.publicSaleIsOpen();
 
-    const remainingSupply = await ReadingContract.currentSupply();
+    const currentSupply = await ReadingContract.currentSupply();
 
-    document.getElementById('remaining-supply').innerText = remainingSupply.toString();
+    document.getElementById('remaining-supply').innerText = currentSupply.toString();
+
+    const remainingSupply = await ReadingContract.maxSupply() - currentSupply;
 
     if (remainingSupply <= 0) {
         document.getElementById('mint-button').style.display = 'none';
