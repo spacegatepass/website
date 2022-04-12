@@ -21,7 +21,7 @@ const etherscan = {
 const contractAddress = {
     mainnet: '',
     ropsten: '',
-    rinkeby: '0x9DFfF7484fbcFeD5A5B380362DD445578d774735'
+    rinkeby: '0x5977655d5eeB3cCf982d3C651d9aE8f68FC46991'
 };
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
