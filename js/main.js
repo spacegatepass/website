@@ -249,7 +249,6 @@ const publicMint = async function() {
     }
 
     const mintTx = await Contract.publicMint(
-        mintAmount,
         {
             value: mintValue
         }
@@ -276,6 +275,8 @@ const refresh = async function() {
     isPublicSale = await ReadingContract.publicSaleIsOpen();
 
     const currentSupply = await ReadingContract.currentSupply();
+
+    console.debug(currentSupply);
 
     document.getElementById('remaining-supply').innerText = currentSupply.toString();
 
