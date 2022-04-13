@@ -135,7 +135,7 @@ window.addEventListener('load', async function() {
                 } catch (error) {
                     // not part of allowlist
                     console.error(error);
-                    document.getElementById('modal-error-reason').innerText = 'Sorry, you are not on the Allowlist. Public mint begins at 10am EST on 3/11.';
+                    document.getElementById('modal-error-reason').innerText = 'Sorry, you are not on the Allowlist. Public mint begins at 4pm UTC on 4/17.';
                     document.getElementById('modal-failure-button').click();
                     return;
                 }
