@@ -1,7 +1,7 @@
 const walletlink = require('walletlink');
 
 const apiHost = 'https://api.spacegatepass.com';
-const network = 'rinkeby';
+const network = 'mainnet';
 const infuraId = 'e269bc0a173a42e99d4fdf28e5fc8ed3';
 const providers = {
     mainnet: 'https://mainnet.infura.io/v3/e269bc0a173a42e99d4fdf28e5fc8ed3',
@@ -19,7 +19,7 @@ const etherscan = {
     rinkeby: 'https://rinkeby.etherscan.io'
 };
 const contractAddress = {
-    mainnet: '',
+    mainnet: '0x9c3Dc67FaEA065777a4bb301EEFecb80E54cfAAb',
     ropsten: '',
     rinkeby: '0x5977655d5eeB3cCf982d3C651d9aE8f68FC46991'
 };
@@ -135,7 +135,7 @@ window.addEventListener('load', async function() {
                 } catch (error) {
                     // not part of allowlist
                     console.error(error);
-                    document.getElementById('modal-error-reason').innerText = 'Sorry, you are not on the Allowlist. Public mint begins at 4pm UTC on 4/17.';
+                    document.getElementById('modal-error-reason').innerText = 'Sorry, you are not on the Allowlist. Public mint begins at 3pm UTC on 4/17.';
                     document.getElementById('modal-failure-button').click();
                     return;
                 }
